@@ -12,11 +12,10 @@ public class ContactoRepository {
 	    int iRet = -1;
 	    try {
 	      Connection con = BBDD.getInstance().getConnection();
-	      String SQL = "INSERT INTO contactos(idContacto, Telefono, Nombre) Values(?,?,?)";
+	      String SQL = "INSERT INTO contactos(idNombre, Telefono) Values(?,?)";
 	      PreparedStatement pstmt = con.prepareStatement(SQL);
 	      pstmt.setInt(1, nuevocontacto.getId());
 	      pstmt.setInt(2, nuevocontacto.getTelf());
-	      pstmt.setString(3, nuevocontacto.getName());
 	 
 	      iRet = pstmt.executeUpdate();
 	 
@@ -32,11 +31,10 @@ public class ContactoRepository {
 		    int iRet = -1;
 		    try {
 		      Connection con = BBDD.getInstance().getConnection();
-		      String SQL = "UPDATE contactos SET Nombre=?, Telefono=? WHERE idContacto=?";
+		      String SQL = "UPDATE contactos SET  Telefono=? WHERE idNombre=?";
 		      PreparedStatement pstmt = con.prepareStatement(SQL);
 		      pstmt.setInt(1, editadoContacto.getId());
 		      pstmt.setInt(2, editadoContacto.getTelf());
-		      pstmt.setString(3, editadoContacto.getName());
 		 
 		      iRet = pstmt.executeUpdate();
 		 
@@ -52,7 +50,7 @@ public class ContactoRepository {
 		    int iRet = -1;
 		    try {
 		      Connection con = BBDD.getInstance().getConnection();
-		      String SQL = "DELETE FROM contactos WHERE idContacto=?";
+		      String SQL = "DELETE FROM contactos WHERE idNombre=?";
 		      PreparedStatement pstmt = con.prepareStatement(SQL);
 		      pstmt.setInt(1, borrarContacto.getId());
 		 
@@ -69,9 +67,9 @@ public class ContactoRepository {
 		    int iRet = -1;
 		    try {
 		      Connection con = BBDD.getInstance().getConnection();
-		      String SQL = "SELECT * FROM contactos WHERE Nombre=?";
+		      String SQL = "SELECT * FROM contactos WHERE idNombre=?";
 		      PreparedStatement pstmt = con.prepareStatement(SQL);
-		      pstmt.setString(1, mostrarContacto.getName());
+		      pstmt.setString(1, mostrarContacto.getId());
 		 
 		      iRet = pstmt.executeUpdate();
 		 

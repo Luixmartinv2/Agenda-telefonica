@@ -2,33 +2,24 @@ package servidor;
 
 public class Contacto{
 	
-	private String sNombre;
-	private int iTelf, idContacto;
+	private String idNombre;
+	private int iTelf;
 	
 	 public Contacto() {
 		// TODO Auto-generated constructor stub
 	  }
 	 
-	  public Contacto(int id, String Nombre, int Telf) {
-		  idContacto = id;
-		  sNombre = Nombre;
+	  public Contacto( String id, int Telf) {
+		  idNombre = id;
 		  iTelf = Telf;
 	  }
 	 
-	  public int getId() {
-	    return idContacto;
+	  public String getId() {
+	    return idNombre;
 	  }
 	 
-	  public void setId(int id) {
-		  idContacto = id;
-	  }
-	 
-	  public String getName() {
-	    return sNombre;
-	  }
-	 
-	  public void setName(String Nombre) {
-		  sNombre = Nombre;
+	  public void setId(String id) {
+		  idNombre = id;
 	  }
 	 
 	  public int getTelf() {
@@ -40,7 +31,7 @@ public class Contacto{
 	  }
 	 
 	  public String toString() {
-	    return idContacto + " - " + sNombre + " - " + iTelf;
+	    return idNombre  + " - " + iTelf;
 	  }
 	
 
