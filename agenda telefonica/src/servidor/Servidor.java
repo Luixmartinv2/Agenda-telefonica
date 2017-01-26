@@ -1,24 +1,54 @@
 package servidor;
 
+import java.util.Scanner;
+import servidor.bbdd.ContactoRepository;
+
+
 public class Servidor  implements IntAgenda {
-
+	Scanner sc = new Scanner(System.in);
+	
 	@Override
-	public boolean nuevoContactos(Contacto nuevoContacto) {
-		// TODO Auto-generated method stub
+	public void nuevoContactos(Contacto nuevoContacto) {
+		String N ="";
+		int T = 0;
 		
-		return false;
+		System.out.println("Escribe el Nombre");
+		N= sc.next();
+		System.out.println("Escribe el numero");
+		T= sc.nextInt();
+		
+		Contacto.setId(N);
+		Contacto.setTelf(T);
+		
+		ContactoRepository.crear(nuevoContacto);
+
 	}
 
 	@Override
-	public boolean borrarContactos(Contacto borrarContacto) {
-		// TODO Auto-generated method stub
-		return false;
+	public void borrarContactos(Contacto borrarContacto) {
+		String N ="";
+		
+		System.out.println("Escribe el Nombre que quieres borrar");
+		N= sc.next();
+		
+		Contacto.setId(N);
+		
+		ContactoRepository.delete(borrarContacto);
+		
+
 	}
 
 	@Override
-	public boolean editarContactos(Contacto editadoContacto) {
-		// TODO Auto-generated method stub
-		return false;
+	public void editarContactos(Contacto editadoContacto) {
+        String N ="";
+		
+		System.out.println("Escribe el Nombre que quieres editar");
+		N= sc.next();
+		
+		Contacto.setId(N);
+		
+		
+		
 	}
 
 	@Override

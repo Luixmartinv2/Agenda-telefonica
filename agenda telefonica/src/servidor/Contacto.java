@@ -2,8 +2,8 @@ package servidor;
 
 public class Contacto{
 	
-	private String idNombre;
-	private int iTelf;
+	private static String idNombre;
+	private static int iTelf;
 	
 	 public Contacto() {
 		// TODO Auto-generated constructor stub
@@ -18,7 +18,7 @@ public class Contacto{
 	    return idNombre;
 	  }
 	 
-	  public void setId(String id) {
+	  public static void setId(String id) {
 		  idNombre = id;
 	  }
 	 
@@ -26,7 +26,7 @@ public class Contacto{
 	    return iTelf;
 	  }
 	 
-	  public void setTelf(int Telf) {
+	  public static void setTelf(int Telf) {
 		  iTelf = Telf;
 	  }
 	 
