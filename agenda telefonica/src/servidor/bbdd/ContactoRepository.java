@@ -14,7 +14,7 @@ public class ContactoRepository {
 	      Connection con = BBDD.getInstance().getConnection();
 	      String SQL = "INSERT INTO contactos(idNombre, Telefono) Values(?,?)";
 	      PreparedStatement pstmt = con.prepareStatement(SQL);
-	      pstmt.setInt(1, nuevocontacto.getId());
+	      pstmt.setString(1, nuevocontacto.getId());
 	      pstmt.setInt(2, nuevocontacto.getTelf());
 	 
 	      iRet = pstmt.executeUpdate();
@@ -33,7 +33,7 @@ public class ContactoRepository {
 		      Connection con = BBDD.getInstance().getConnection();
 		      String SQL = "UPDATE contactos SET  Telefono=? WHERE idNombre=?";
 		      PreparedStatement pstmt = con.prepareStatement(SQL);
-		      pstmt.setInt(1, editadoContacto.getId());
+		      pstmt.setString(1, editadoContacto.getId());
 		      pstmt.setInt(2, editadoContacto.getTelf());
 		 
 		      iRet = pstmt.executeUpdate();
@@ -52,7 +52,7 @@ public class ContactoRepository {
 		      Connection con = BBDD.getInstance().getConnection();
 		      String SQL = "DELETE FROM contactos WHERE idNombre=?";
 		      PreparedStatement pstmt = con.prepareStatement(SQL);
-		      pstmt.setInt(1, borrarContacto.getId());
+		      pstmt.setString(1, borrarContacto.getId());
 		 
 		      iRet = pstmt.executeUpdate();
 		 
