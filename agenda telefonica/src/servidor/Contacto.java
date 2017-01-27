@@ -33,7 +33,5 @@ public class Contacto{
 	  public String toString() {
 	    return idNombre  + " - " + iTelf;
 	  }
-	
-
 
 }
