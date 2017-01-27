@@ -29,6 +29,7 @@ public class Cliente {
 			System.out.println("Mensaje enviado");
 			byte[] mensaje = new byte[25];
 			is.read(mensaje);
+			System.out.println(mensaje);
 			System.out.println("Cerrando el socket cliente");
 			clientSocket.close();
 			System.out.println("Terminado");
