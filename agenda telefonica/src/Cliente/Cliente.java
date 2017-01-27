@@ -7,9 +7,11 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.Scanner;
 
+import servidor.Contacto;
+
 public class Cliente {
 	static Scanner sc = new Scanner(System.in);
-	static byte m = '1';
+	static int m = '1';
 
 	public static void main(String[] args) {
 		try {
@@ -20,16 +22,31 @@ public class Cliente {
 			clientSocket.connect(addr);
 			InputStream is = clientSocket.getInputStream();
 			OutputStream os = clientSocket.getOutputStream();
+			//  la acción    ///////////////////////////////////
 			System.out.println("introduce el codigo de mensage: ");
-			m = sc.nextByte();
+			System.out.println("1 para borrar, 2 para editar, 3 para mostrar, 4 para agregar contacto");
+			m = sc.nextInt();
+			//  el contacto  ///////////////////////////////////
+			String N = "";
+			int T = 0;
 
+			System.out.println("Escribe el Nombre cullo numero quieres editar");
+			N = sc.next();
+			System.out.println("Escribe el nuevo numero");
+			T = sc.nextInt();
+
+			Contacto.setId(N);
+			Contacto.setTelf(T);
+			/////////////////////////////////////////////////////
 			System.out.println("Enviando mensaje");
-			byte num1 = m;
+			int num1 = m;
 			os.write(num1);
+			
+			
 			System.out.println("Mensaje enviado");
-			byte[] mensaje = new byte[25];
-			is.read(mensaje);
-			System.out.println(mensaje);
+			String mensaje = "";
+			is.read();
+			System.out.println(mensaje.trim());
 			System.out.println("Cerrando el socket cliente");
 			clientSocket.close();
 			System.out.println("Terminado");
@@ -37,5 +54,7 @@ public class Cliente {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 }

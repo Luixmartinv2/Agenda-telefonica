@@ -26,6 +26,21 @@ public class Servidor implements IntAgenda {
 			System.out.println("Conexión recibida");
 			InputStream is = newSocket.getInputStream();
 			OutputStream os = newSocket.getOutputStream();
+			String mensaje = "";
+			is.read();
+			System.out.println(mensaje.trim());
+			
+			if(mensaje=="1"){
+				get
+				nuevoContactos();
+			} else if(mensaje=="2"){
+				borrarContactos();
+			}else if(mensaje=="3"){
+				editarContactos();
+			}else if(mensaje=="4"){
+				mostrarContactos();
+			}
+			
 			System.out.println("Cerrando el nuevo socket");
 			newSocket.close();
 			System.out.println("Cerrando el socket servidor");
